@@ -1,4 +1,6 @@
 # Webpack + tailwind base setup
+**Work in progress**.
+
 Starting out with no framework and getting to know how to setup Webpack 5 with the easiest website building package I can come up with.
 
 ## Dependencies
