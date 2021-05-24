@@ -1,3 +1,3 @@
-require('./styles/tailwind.css')
+require('./styles/styles.css')
 
 console.log('Coucou')

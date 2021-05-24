@@ -34,7 +34,7 @@ module.exports = {
 Recommended CSS config for Webpack 5: https://webpack.js.org/loaders/css-loader/#recommend
 
 Going to try something simpler for a start:
-```
+```js
 {
   test: /\.css$/,
   use: [
@@ -43,3 +43,6 @@ Going to try something simpler for a start:
   ],
 },
 ```
+
+## Purging unused Tailwind classes
+I think tailwind.config.js has to have paths of source files to scan for this to work.
