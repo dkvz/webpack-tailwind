@@ -24,10 +24,10 @@ Create postcss.config.js at the project root:
 ```js
 const tailwindcss = require('tailwindcss')
 module.exports = {
-    plugins: [
-        tailwindcss('./tailwind.config.js'),
-        require('autoprefixer'),
-    ],
+  plugins: [
+    tailwindcss('./tailwind.config.js'),
+    require('autoprefixer'),
+  ],
 }
 ```
 
@@ -43,6 +43,18 @@ Going to try something simpler for a start:
   ],
 },
 ```
+
+## PostCSS keywords are marked as errors by VSCode
+As they should. I assumed we'd use a different file extension for the styles but they don't in the official doc.
+
+Maybe we need some kind of extension like this one: https://marketplace.visualstudio.com/items?itemName=ricard.PostCSS
+
+If that provides autocompletion for utility class names it'd be even better.
+
+## More PostCSS features
+You need to add features manually, e.g., using @import requires installing and registering `postcss-import`.
+
+Same goes for using nested styles as you would with SASS, you need another PostCSS thingy. It's somewhat discussed here: https://tailwindcss.com/docs/using-with-preprocessors
 
 ## Purging unused Tailwind classes
 I think tailwind.config.js has to have paths of source files to scan for this to work.
