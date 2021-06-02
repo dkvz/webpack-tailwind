@@ -36,7 +36,7 @@ Recommended CSS config for Webpack 5: https://webpack.js.org/loaders/css-loader/
 Going to try something simpler for a start:
 ```js
 {
-  test: /\.css$/,
+  test: /\.p?css$/,
   use: [
     MiniCssExtractPlugin.loader,
     "css-loader", "postcss-loader",
@@ -47,9 +47,13 @@ Going to try something simpler for a start:
 ## PostCSS keywords are marked as errors by VSCode
 As they should. I assumed we'd use a different file extension for the styles but they don't in the official doc.
 
-Maybe we need some kind of extension like this one: https://marketplace.visualstudio.com/items?itemName=ricard.PostCSS
+---
 
-If that provides autocompletion for utility class names it'd be even better.
+I fixed it by renaming the .css to .pcss, which requires modifying the webpack config CSS rule regex and is the reason why there's a "p?" in my example above.
+
+You can then search for the PostCSS language support extension, install it, and it should work.
+
+You can import your .pcss file inside of the entrypoint js file.
 
 ## More PostCSS features
 You need to add features manually, e.g., using @import requires installing and registering `postcss-import`.

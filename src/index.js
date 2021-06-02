@@ -1,3 +1,3 @@
-require('./styles/styles.css')
+require('./styles/styles.pcss')
 
 console.log('Coucou')
