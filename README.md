@@ -62,3 +62,6 @@ Same goes for using nested styles as you would with SASS, you need another PostC
 
 ## Purging unused Tailwind classes
 I think tailwind.config.js has to have paths of source files to scan for this to work.
+
+# TODO
+- [ ] Document how to use SASS, since it's got @apply by default, it's probably a better choice than SCSS when willing to handle to dev overhead.
