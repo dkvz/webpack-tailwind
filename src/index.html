@@ -7,11 +7,28 @@
   <title>Tailwind + Webpack test</title>
 </head>
 <body>
-  <main class="p-2 bg-gray-200">
+  <header class="p-4 bg-blue-100">
     <h1 class="mb-2 font-bold text-4xl">Tailwind + Webpack test</h1>
     <div>
       <button class="btn">Don't click me</button>
     </div>
-  </main>
+  </header>
+  <section class="my-6 p-6 container mx-auto bg-yellow-100 text-yellow-700 rounded">
+    <h2 class="text-2xl font-bold">Tailwind has the container class</h2>
+    <div class="my-2">
+      Just some subtext in there.
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-yellow-600 text-gray-100 p-3">
+        <h3 class="text-xl mb-4">Card title 1</h3>
+        <div>Yeah I don't know. Supposed to be some kind of description.</div>
+        <div><a href="#">Links are unstyled</a></div>
+      </div>
+      <div class="bg-yellow-600 text-gray-100 p-3">
+        <h3 class="text-xl mb-4">Card title 2</h3>
+        <div>Lorem ipsum dolor sit amet.</div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
