@@ -63,5 +63,69 @@ Same goes for using nested styles as you would with SASS, you need another PostC
 ## Purging unused Tailwind classes
 I think tailwind.config.js has to have paths of source files to scan for this to work.
 
+There is a caveat in the mechanism in that it scans your source for class names, but obviously if you're generating these class names programatically in a combinatory fashion in your templates or frontend framework, it won't pick them up and you risk not having the classes in the final build.
+
+For instance, something you could see in React for which the class names (text-green-600 for instance) won't get picked up:
+```html
+<div className={'text-' + warning ? 'red' : 'green' + '-600'}>
+  <p>Some warning message would go here</p>
+</div>
+```
+But this will:
+```html
+<div className={warning ? 'text-red-600' : 'text-green-600'}>
+  <p>Some warning message would go here</p>
+</div>
+```
+Which is probably how I'd have written it anyway, but it's good to keep in mind.
+
+To make the purging works you just have to add the files to be scanned in the "purge" array that should be in your `tailwind.confi.js`.
+
+In my case the file ends up like so:
+```js
+module.exports = {
+  purge: [
+    './src/**/*.html',
+    './src/**/*.js'
+  ],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+The purging should only happen if NODE_ENV is set to "production", which isn't as straightforward as it should be with Webpack because setting the "mode" to production doesn't set NODE_ENV accordingly for PostCSS. To make it work we'd need to set the env variable in CLI in the script in package.json, or use a function as the default export for the config, as you do (separate webpack config files for prod and dev would also work) and force process.env.NODE_ENV to the right value in there.
+
+Purging can be forced like so:
+```js
+module.exports = {
+  purge: {
+    enabled: true,
+    content: [
+      './src/**/*.html',
+      './src/**/*.js'
+    ]
+  },
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+You can go futher with the purging and see extra options over there: https://tailwindcss.com/docs/optimizing-for-production
+
 # TODO
 - [ ] Document how to use SASS, since it's got @apply by default, it's probably a better choice than SCSS when willing to handle to dev overhead.
+- [x] For the tree-shaking feature: the PurgeCSS plugin supposedly looks for class names in HTML files, I should double check that it works with @apply PostCSS rules too.
+- [ ] Copy this whole README in my knowledge base.
+- [ ] My CSS is not minified in prod.
