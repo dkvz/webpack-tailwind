@@ -128,4 +128,7 @@ You can go futher with the purging and see extra options over there: https://tai
 - [ ] Document how to use SASS, since it's got @apply by default, it's probably a better choice than SCSS when willing to handle to dev overhead.
 - [x] For the tree-shaking feature: the PurgeCSS plugin supposedly looks for class names in HTML files, I should double check that it works with @apply PostCSS rules too.
 - [ ] Copy this whole README in my knowledge base.
-- [ ] My CSS is not minified in prod.
+- [ ] My CSS is not minified in prod. Checkout the [css-minimize-webpack-plugin](https://webpack.js.org/plugins/css-minimizer-webpack-plugin)
+- [ ] Is JS minified in prod?
+- [ ] There is no source map but maybe that's a good thing knowing the size of unminified Tailwind. We may want source maps for the JS though.
+- [ ] There is no cache busting at all.
