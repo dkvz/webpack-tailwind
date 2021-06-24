@@ -2,6 +2,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
+const minifyOptions = {
+  removeComments: true,
+  collapseWhitespace: true,
+  removeAttributeQuotes: false
+}
+
 const config = {
   entry: './src/index.js',
   output: {
@@ -21,9 +27,6 @@ const config = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    }),
     new MiniCssExtractPlugin({
       chunkFilename: 'styles.css'
     })
@@ -35,8 +38,13 @@ module.exports = (env, argv) => {
   // or development. We could do it with the 
   // CLI in package.json but then that doesn't
   // play well with Windows.
-  process.env.NODE_ENV = argv.mode === "production" ? 
+  process.env.NODE_ENV = argv.mode === 'production' ? 
     'production' : 'development'
 
-  return config;
+  config.plugins.push(new HtmlWebpackPlugin({
+    template: './src/index.html',
+    minify: (argv.mode === 'production') ? minifyOptions : false
+  }))
+
+  return config
 }
