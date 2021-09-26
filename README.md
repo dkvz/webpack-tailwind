@@ -125,7 +125,7 @@ module.exports = {
 You can go futher with the purging and see extra options over there: https://tailwindcss.com/docs/optimizing-for-production
 
 # TODO
-- [ ] I should include some basic PostCSS plugins. PreCSS would make sense.
+- [x] I should include some basic PostCSS plugins. PreCSS would make sense.
 - [x] For the tree-shaking feature: the PurgeCSS plugin supposedly looks for class names in HTML files, I should double check that it works with @apply PostCSS rules too.
 - [ ] Copy this whole README in my knowledge base.
 - [ ] My CSS is not minified in prod. Use cssnano (PostCSS?) or check out the [css-minimize-webpack-plugin](https://webpack.js.org/plugins/css-minimizer-webpack-plugin)
