@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve --mode=development",
     "build": "webpack --mode=production",
+    "prod": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "DkVZ",
@@ -13,6 +14,7 @@
   "devDependencies": {
     "autoprefixer": "^10.2.5",
     "css-loader": "^5.2.5",
+    "cssnano": "^5.0.8",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.6.0",
     "postcss-cli": "^8.3.1",
