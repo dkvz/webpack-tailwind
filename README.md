@@ -127,9 +127,10 @@ You can go futher with the purging and see extra options over there: https://tai
 # TODO
 - [x] I should include some basic PostCSS plugins. PreCSS would make sense.
 - [x] For the tree-shaking feature: the PurgeCSS plugin supposedly looks for class names in HTML files, I should double check that it works with @apply PostCSS rules too.
-- [ ] CSS and JS are added using relative "bundle.js" URLs. I should have the option to build using "/" base path for these URLs.
+- [ ] I should put the assets in a specific directory instead of the root
+
 - [ ] Copy this whole README in my knowledge base.
 - [x] My CSS is not minified in prod. Use cssnano (PostCSS?) or check out the [css-minimize-webpack-plugin](https://webpack.js.org/plugins/css-minimizer-webpack-plugin)
 - [x] Is JS minified in prod?
-- [ ] There is no source map but maybe that's a good thing knowing the size of unminified Tailwind. We may want source maps for the JS though.
+- [ ] There is no source map for the JS (make sure we don't have any for the CSS as unminified Tailwind is way to crazy)
 - [ ] There is no cache busting at all -> I don't need it when including Webpack and Tailwind in a server app.

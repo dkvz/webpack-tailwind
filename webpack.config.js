@@ -12,6 +12,9 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
+    // Uncomment to set the bundle paths to be "/" instead of the 
+    // base relative path (e.g. src="bundle.js")
+    //publicPath: '/',
     filename: 'bundle.js',
     clean: true
   },
